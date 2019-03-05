@@ -10,69 +10,69 @@ namespace IncomprehensibleFinderKata.Tests {
         private readonly Person mike = new Person() {Name = "Mike", BirthDate = new DateTime(1979, 1, 1)};
 
         [Fact]
-        public void Returns_Empty_Results_When_Given_Empty_List() {
-            var list = new List<Person>();
-            var finder = new Finder(list);
+        public void Returns_No_Couple_When_Given_Empty_List() {
+            var people = new List<Person>();
+            var finder = new Finder(people);
 
-            var result = finder.Find(Filter.Closest);
+            var noCouple = finder.Find(Filter.Closest);
 
-            Assert.Null(result.FirstPerson);
-            Assert.Null(result.SecondPerson);
+            Assert.Null(noCouple.FirstPerson);
+            Assert.Null(noCouple.SecondPerson);
         }
 
         [Fact]
-        public void Returns_Empty_Results_When_Given_One_Person() {
-            var list = new List<Person>() {sue};
-            var finder = new Finder(list);
+        public void Returns_No_Couple_When_Given_One_Person() {
+            var people = new List<Person>() {sue};
+            var finder = new Finder(people);
 
-            var result = finder.Find(Filter.Closest);
+            var noCouple = finder.Find(Filter.Closest);
 
-            Assert.Null(result.FirstPerson);
-            Assert.Null(result.SecondPerson);
+            Assert.Null(noCouple.FirstPerson);
+            Assert.Null(noCouple.SecondPerson);
         }
 
         [Fact]
-        public void Returns_Closest_Two_For_Two_People() {
-            var list = new List<Person>() {sue, greg};
-            var finder = new Finder(list);
+        public void Returns_Closest_Couple_For_Two_People() {
+            var people = new List<Person>() {sue, greg};
+            var finder = new Finder(people);
 
-            var result = finder.Find(Filter.Closest);
+            var closestCouple = finder.Find(Filter.Closest);
 
-            Assert.Same(sue, result.FirstPerson);
-            Assert.Same(greg, result.SecondPerson);
+            Assert.Same(sue, closestCouple.FirstPerson);
+            Assert.Same(greg, closestCouple.SecondPerson);
         }
 
         [Fact]
-        public void Returns_Furthest_Two_For_Two_People() {
-            var list = new List<Person>() {greg, mike};
-            var finder = new Finder(list);
+        public void Returns_Furthest_Couple_For_Two_People() {
+            var people = new List<Person>() {greg, mike};
+            var finder = new Finder(people);
 
-            var result = finder.Find(Filter.Furthest);
+            var furthestCouple = finder.Find(Filter.Furthest);
 
-            Assert.Same(greg, result.FirstPerson);
-            Assert.Same(mike, result.SecondPerson);
+            Assert.Same(greg, furthestCouple.FirstPerson);
+            Assert.Same(mike, furthestCouple.SecondPerson);
         }
 
         [Fact]
-        public void Returns_Furthest_Two_For_Four_People() {
-            var list = new List<Person>() {greg, mike, sarah, sue};
-            var finder = new Finder(list);
+        public void Returns_Furthest_Couple_For_Four_People() {
+            var people = new List<Person>() {greg, mike, sarah, sue};
+            var finder = new Finder(people);
 
-            var result = finder.Find(Filter.Furthest);
+            var furthestCouple = finder.Find(Filter.Furthest);
 
-            Assert.Same(sue, result.FirstPerson);
-            Assert.Same(sarah, result.SecondPerson);
+            Assert.Same(sue, furthestCouple.FirstPerson);
+            Assert.Same(sarah, furthestCouple.SecondPerson);
         }
 
         [Fact]
-        public void Returns_Closest_Two_For_Four_People() {
-            var list = new List<Person>() {greg, mike, sarah, sue};
-            var finder = new Finder(list);
+        public void Returns_Closest_Couple_For_Four_People() {
+            var people = new List<Person>() {greg, mike, sarah, sue};
+            var finder = new Finder(people);
 
-            var result = finder.Find(Filter.Closest);
+            var closestCouple = finder.Find(Filter.Closest);
 
-            Assert.Same(sue, result.FirstPerson);
-            Assert.Same(greg, result.SecondPerson);
+            Assert.Same(sue, closestCouple.FirstPerson);
+            Assert.Same(greg, closestCouple.SecondPerson);
         }
     }
 }
