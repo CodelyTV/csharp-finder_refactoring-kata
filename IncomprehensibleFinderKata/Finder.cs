@@ -14,14 +14,12 @@ namespace IncomprehensibleFinderKata {
             var couples = GetPossibleCouples();
 
             var answer = couples[0];
-            foreach (var couple in couples) {
-                switch (filter) {
-                    case Filter.Closest:
-                        return couples.OrderBy(c => c.D).First();
+            switch (filter) {
+                case Filter.Closest:
+                    return couples.OrderBy(c => c.D).First();
 
-                    case Filter.Furthest:
-                        return couples.OrderByDescending(c => c.D).First();
-                }
+                case Filter.Furthest:
+                    return couples.OrderByDescending(c => c.D).First();
             }
 
             return answer;
