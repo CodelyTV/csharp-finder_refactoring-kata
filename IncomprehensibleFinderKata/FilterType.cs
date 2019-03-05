@@ -1,6 +1,6 @@
 ﻿namespace IncomprehensibleFinderKata
 {
-    public enum Filter
+    public enum FilterType
     {
         Closest,
         Furthest

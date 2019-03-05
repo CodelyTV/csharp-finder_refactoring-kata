@@ -9,15 +9,15 @@ namespace IncomprehensibleFinderKata {
             this.people = people;
         }
 
-        public Couple Find(Filter filter) {
+        public Couple Find(FilterType filterType) {
             if (people.Count < 2) return new Couple();
             var couples = GetPossibleCouples();
 
-            switch (filter) {
-                case Filter.Closest:
+            switch (filterType) {
+                case FilterType.Closest:
                     return couples.OrderBy(c => c.DifferenceBetweenBirthdates).First();
 
-                case Filter.Furthest:
+                case FilterType.Furthest:
                     return couples.OrderByDescending(c => c.DifferenceBetweenBirthdates).First();
             }
             return new Couple();

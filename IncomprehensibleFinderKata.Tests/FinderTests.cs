@@ -14,7 +14,7 @@ namespace IncomprehensibleFinderKata.Tests {
             var people = new List<Person>();
             var finder = new Finder(people);
 
-            var noCouple = finder.Find(Filter.Closest);
+            var noCouple = finder.Find(FilterType.Closest);
 
             Assert.Null(noCouple.FirstPerson);
             Assert.Null(noCouple.SecondPerson);
@@ -25,7 +25,7 @@ namespace IncomprehensibleFinderKata.Tests {
             var people = new List<Person>() {sue};
             var finder = new Finder(people);
 
-            var noCouple = finder.Find(Filter.Closest);
+            var noCouple = finder.Find(FilterType.Closest);
 
             Assert.Null(noCouple.FirstPerson);
             Assert.Null(noCouple.SecondPerson);
@@ -36,7 +36,7 @@ namespace IncomprehensibleFinderKata.Tests {
             var people = new List<Person>() {sue, greg};
             var finder = new Finder(people);
 
-            var closestCouple = finder.Find(Filter.Closest);
+            var closestCouple = finder.Find(FilterType.Closest);
 
             Assert.Same(sue, closestCouple.FirstPerson);
             Assert.Same(greg, closestCouple.SecondPerson);
@@ -47,7 +47,7 @@ namespace IncomprehensibleFinderKata.Tests {
             var people = new List<Person>() {greg, mike};
             var finder = new Finder(people);
 
-            var furthestCouple = finder.Find(Filter.Furthest);
+            var furthestCouple = finder.Find(FilterType.Furthest);
 
             Assert.Same(greg, furthestCouple.FirstPerson);
             Assert.Same(mike, furthestCouple.SecondPerson);
@@ -58,7 +58,7 @@ namespace IncomprehensibleFinderKata.Tests {
             var people = new List<Person>() {greg, mike, sarah, sue};
             var finder = new Finder(people);
 
-            var furthestCouple = finder.Find(Filter.Furthest);
+            var furthestCouple = finder.Find(FilterType.Furthest);
 
             Assert.Same(sue, furthestCouple.FirstPerson);
             Assert.Same(sarah, furthestCouple.SecondPerson);
@@ -69,7 +69,7 @@ namespace IncomprehensibleFinderKata.Tests {
             var people = new List<Person>() {greg, mike, sarah, sue};
             var finder = new Finder(people);
 
-            var closestCouple = finder.Find(Filter.Closest);
+            var closestCouple = finder.Find(FilterType.Closest);
 
             Assert.Same(sue, closestCouple.FirstPerson);
             Assert.Same(greg, closestCouple.SecondPerson);
