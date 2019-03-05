@@ -23,12 +23,10 @@ namespace IncomprehensibleFinderKata {
                 for (var j = i + 1; j < people.Count; j++) {
                     var couple = new Couple();
                     if (people[i].BirthDate < people[j].BirthDate) {
-                        couple.FirstPerson = people[i];
-                        couple.SecondPerson = people[j];
+                        couple = new Couple(people[i], people[j]);
                     }
                     else {
-                        couple.FirstPerson = people[j];
-                        couple.SecondPerson = people[i];
+                        couple = new Couple(people[j], people[i]);
                     }
 
                     couple.D = couple.SecondPerson.BirthDate - couple.FirstPerson.BirthDate;
