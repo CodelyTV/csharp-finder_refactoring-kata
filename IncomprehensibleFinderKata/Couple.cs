@@ -6,7 +6,7 @@ namespace IncomprehensibleFinderKata {
         public Person SecondPerson { get; set; }
         public TimeSpan DifferenceBetweenBirthdates { get; }
 
-        public Couple() { }
+        protected Couple() { }
         public Couple(Person firstPerson, Person secondPerson) {
             FirstPerson = firstPerson;
             SecondPerson = secondPerson;
