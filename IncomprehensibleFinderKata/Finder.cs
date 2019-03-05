@@ -11,15 +11,15 @@ namespace IncomprehensibleFinderKata
             _p = p;
         }
 
-        public F Find(FT ft)
+        public FindResult Find(Filter filter)
         {
-            var tr = new List<F>();
+            var tr = new List<FindResult>();
 
             for(var i = 0; i < _p.Count - 1; i++)
             {
                 for(var j = i + 1; j < _p.Count; j++)
                 {
-                    var r = new F();
+                    var r = new FindResult();
                     if(_p[i].BirthDate < _p[j].BirthDate)
                     {
                         r.P1 = _p[i];
@@ -37,22 +37,22 @@ namespace IncomprehensibleFinderKata
 
             if(tr.Count < 1)
             {
-                return new F();
+                return new FindResult();
             }
 
-            F answer = tr[0];
+            FindResult answer = tr[0];
             foreach(var result in tr)
             {
-                switch(ft)
+                switch(filter)
                 {
-                    case FT.One:
+                    case Filter.Closest:
                         if(result.D < answer.D)
                         {
                             answer = result;
                         }
                         break;
 
-                    case FT.Two:
+                    case Filter.Furthest:
                         if(result.D > answer.D)
                         {
                             answer = result;
