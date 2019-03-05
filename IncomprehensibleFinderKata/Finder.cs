@@ -10,7 +10,7 @@ namespace IncomprehensibleFinderKata {
         }
 
         public Couple Find(FilterType filterType) {
-            if (people.Count < 2) return new NoCouple();
+            if (people.Count < 2) return new Couple();
             var couples = GetPossibleCouples();
 
             return new Filter(filterType).ApplyOn(couples);
@@ -21,14 +21,17 @@ namespace IncomprehensibleFinderKata {
 
             for (var i = 0; i < people.Count - 1; i++) {
                 for (var j = i + 1; j < people.Count; j++) {
-                    Couple couple;
+                    var couple = new Couple();
                     if (people[i].BirthDate < people[j].BirthDate) {
-                        couple = new Couple(people[i], people[j]);
+                        couple.FirstPerson = people[i];
+                        couple.SecondPerson = people[j];
                     }
                     else {
-                        couple = new Couple(people[i], people[j]);
+                        couple.FirstPerson = people[j];
+                        couple.SecondPerson = people[i];
                     }
-                    couple.CalculateDifferenceBetweenBirthdates();
+
+                    couple.D = couple.SecondPerson.BirthDate - couple.FirstPerson.BirthDate;
                     couples.Add(couple);
                 }
             }
