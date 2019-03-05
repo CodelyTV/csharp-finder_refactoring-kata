@@ -4,10 +4,10 @@ using Xunit;
 
 namespace IncomprehensibleFinderKata.Tests {
     public class FinderTests {
-        Thing sue = new Thing() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1)};
-        Thing greg = new Thing() {Name = "Greg", BirthDate = new DateTime(1952, 6, 1)};
-        Thing sarah = new Thing() {Name = "Sarah", BirthDate = new DateTime(1982, 1, 1)};
-        Thing mike = new Thing() {Name = "Mike", BirthDate = new DateTime(1979, 1, 1)};
+        private readonly Thing sue = new Thing() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1)};
+        public readonly Thing greg = new Thing() {Name = "Greg", BirthDate = new DateTime(1952, 6, 1)};
+        private readonly Thing sarah = new Thing() {Name = "Sarah", BirthDate = new DateTime(1982, 1, 1)};
+        private readonly Thing mike = new Thing() {Name = "Mike", BirthDate = new DateTime(1979, 1, 1)};
 
         [Fact]
         public void Returns_Empty_Results_When_Given_Empty_List() {
