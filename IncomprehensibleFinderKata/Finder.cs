@@ -18,14 +18,10 @@ namespace IncomprehensibleFinderKata {
                 switch (filter) {
                     case Filter.Closest:
                         answer = couples.OrderBy(c => c.D).First();
-
                         break;
 
                     case Filter.Furthest:
-                        if (couple.D > answer.D) {
-                            answer = couple;
-                        }
-
+                        answer = couples.OrderByDescending(c => c.D).First();
                         break;
                 }
             }
