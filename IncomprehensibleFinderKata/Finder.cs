@@ -17,12 +17,10 @@ namespace IncomprehensibleFinderKata {
             foreach (var couple in couples) {
                 switch (filter) {
                     case Filter.Closest:
-                        answer = couples.OrderBy(c => c.D).First();
-                        break;
+                        return couples.OrderBy(c => c.D).First();
 
                     case Filter.Furthest:
-                        answer = couples.OrderByDescending(c => c.D).First();
-                        break;
+                        return couples.OrderByDescending(c => c.D).First();
                 }
             }
 
