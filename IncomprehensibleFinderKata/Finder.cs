@@ -29,7 +29,6 @@ namespace IncomprehensibleFinderKata {
                         couple = new Couple(people[j], people[i]);
                     }
 
-                    couple.CalculateBirthdateDifference();
                     couples.Add(couple);
                 }
             }
