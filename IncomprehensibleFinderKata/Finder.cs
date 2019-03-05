@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace IncomprehensibleFinderKata {
     public class Finder {
@@ -16,9 +17,7 @@ namespace IncomprehensibleFinderKata {
             foreach (var couple in couples) {
                 switch (filter) {
                     case Filter.Closest:
-                        if (couple.D < answer.D) {
-                            answer = couple;
-                        }
+                        answer = couples.OrderBy(c => c.D).First();
 
                         break;
 
