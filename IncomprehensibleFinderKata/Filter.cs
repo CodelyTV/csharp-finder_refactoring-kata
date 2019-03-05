@@ -16,9 +16,9 @@ namespace IncomprehensibleFinderKata {
 
                 case FilterType.Furthest:
                     return couples.OrderByDescending(c => c.DifferenceBetweenBirthdates).First();
+                default:
+                    return new NoCouple();
             }
-
-            return new NoCouple();
         }
     }
 }
