@@ -29,16 +29,12 @@ namespace IncomprehensibleFinderKata {
                         couple = new Couple(people[j], people[i]);
                     }
 
-                    CalculateBirthdateDifference(couple);
+                    couple.CalculateBirthdateDifference();
                     couples.Add(couple);
                 }
             }
 
             return couples;
-        }
-
-        private static void CalculateBirthdateDifference(Couple couple) {
-            couple.D = couple.SecondPerson.BirthDate - couple.FirstPerson.BirthDate;
         }
     }
 }

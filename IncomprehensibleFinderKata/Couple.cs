@@ -11,5 +11,9 @@ namespace IncomprehensibleFinderKata {
             FirstPerson = firstPerson;
             SecondPerson = secondPerson;
         }
+
+        public void CalculateBirthdateDifference() {
+            D = SecondPerson.BirthDate - FirstPerson.BirthDate;
+        }
     }
 }
