@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace IncomprehensibleFinderKata {
     public class Finder {
@@ -13,14 +12,7 @@ namespace IncomprehensibleFinderKata {
             if (people.Count < 2) return new Couple();
             var couples = GetPossibleCouples();
 
-            switch (filterType) {
-                case FilterType.Closest:
-                    return couples.OrderBy(c => c.DifferenceBetweenBirthdates).First();
-
-                case FilterType.Furthest:
-                    return couples.OrderByDescending(c => c.DifferenceBetweenBirthdates).First();
-            }
-            return new Couple();
+            return new Filter(filterType).ApplyOn(couples);
         }
 
         private List<Couple> GetPossibleCouples() {
