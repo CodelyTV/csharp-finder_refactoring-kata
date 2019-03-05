@@ -28,16 +28,12 @@ namespace IncomprehensibleFinderKata {
                     else {
                         couple = new Couple(people[i], people[j]);
                     }
-                    couple.DifferenceBetweenBirthdates = couple.SecondPerson.BirthDate - couple.FirstPerson.BirthDate;
+                    couple.CalculateDifferenceBetweenBirthdates();
                     couples.Add(couple);
                 }
             }
 
             return couples;
         }
-    }
-
-    public class NoCouple : Couple {
-        public NoCouple() : base(null, null) { }
     }
 }

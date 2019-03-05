@@ -9,6 +9,11 @@ namespace IncomprehensibleFinderKata {
         public Couple(Person firstPerson, Person secondPerson) {
             FirstPerson = firstPerson;
             SecondPerson = secondPerson;
+            CalculateDifferenceBetweenBirthdates();
+        }
+
+        public void CalculateDifferenceBetweenBirthdates() {
+            DifferenceBetweenBirthdates = SecondPerson.BirthDate - FirstPerson.BirthDate;
         }
     }
 }
