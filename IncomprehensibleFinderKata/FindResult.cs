@@ -2,7 +2,7 @@
 
 namespace IncomprehensibleFinderKata
 {
-    public class F
+    public class FindResult
     {
         public Person P1 { get; set; }
         public Person P2 { get; set; }
