@@ -16,8 +16,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var result = finder.Find(Filter.Closest);
 
-            Assert.Null(result.P1);
-            Assert.Null(result.P2);
+            Assert.Null(result.FirstPerson);
+            Assert.Null(result.SecondPerson);
         }
 
         [Fact]
@@ -27,8 +27,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var result = finder.Find(Filter.Closest);
 
-            Assert.Null(result.P1);
-            Assert.Null(result.P2);
+            Assert.Null(result.FirstPerson);
+            Assert.Null(result.SecondPerson);
         }
 
         [Fact]
@@ -38,8 +38,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var result = finder.Find(Filter.Closest);
 
-            Assert.Same(sue, result.P1);
-            Assert.Same(greg, result.P2);
+            Assert.Same(sue, result.FirstPerson);
+            Assert.Same(greg, result.SecondPerson);
         }
 
         [Fact]
@@ -49,8 +49,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var result = finder.Find(Filter.Furthest);
 
-            Assert.Same(greg, result.P1);
-            Assert.Same(mike, result.P2);
+            Assert.Same(greg, result.FirstPerson);
+            Assert.Same(mike, result.SecondPerson);
         }
 
         [Fact]
@@ -60,8 +60,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var result = finder.Find(Filter.Furthest);
 
-            Assert.Same(sue, result.P1);
-            Assert.Same(sarah, result.P2);
+            Assert.Same(sue, result.FirstPerson);
+            Assert.Same(sarah, result.SecondPerson);
         }
 
         [Fact]
@@ -71,8 +71,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var result = finder.Find(Filter.Closest);
 
-            Assert.Same(sue, result.P1);
-            Assert.Same(greg, result.P2);
+            Assert.Same(sue, result.FirstPerson);
+            Assert.Same(greg, result.SecondPerson);
         }
     }
 }

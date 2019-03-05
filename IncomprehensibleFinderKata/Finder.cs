@@ -15,10 +15,10 @@ namespace IncomprehensibleFinderKata {
 
             switch (filter) {
                 case Filter.Closest:
-                    return couples.OrderBy(c => c.D).First();
+                    return couples.OrderBy(c => c.DifferenceBetweenBirthdates).First();
 
                 case Filter.Furthest:
-                    return couples.OrderByDescending(c => c.D).First();
+                    return couples.OrderByDescending(c => c.DifferenceBetweenBirthdates).First();
             }
             return new Couple();
         }
@@ -30,15 +30,15 @@ namespace IncomprehensibleFinderKata {
                 for (var j = i + 1; j < people.Count; j++) {
                     var couple = new Couple();
                     if (people[i].BirthDate < people[j].BirthDate) {
-                        couple.P1 = people[i];
-                        couple.P2 = people[j];
+                        couple.FirstPerson = people[i];
+                        couple.SecondPerson = people[j];
                     }
                     else {
-                        couple.P1 = people[j];
-                        couple.P2 = people[i];
+                        couple.FirstPerson = people[j];
+                        couple.SecondPerson = people[i];
                     }
 
-                    couple.D = couple.P2.BirthDate - couple.P1.BirthDate;
+                    couple.DifferenceBetweenBirthdates = couple.SecondPerson.BirthDate - couple.FirstPerson.BirthDate;
                     couples.Add(couple);
                 }
             }
