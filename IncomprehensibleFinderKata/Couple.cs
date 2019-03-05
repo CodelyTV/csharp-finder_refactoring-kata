@@ -2,8 +2,8 @@
 
 namespace IncomprehensibleFinderKata {
     public class Couple {
-        public Person FirstPerson { get; set; }
-        public Person SecondPerson { get; set; }
+        public Person FirstPerson { get; }
+        public Person SecondPerson { get; }
         public TimeSpan DifferenceBetweenBirthdates { get; }
 
         protected Couple() { }
