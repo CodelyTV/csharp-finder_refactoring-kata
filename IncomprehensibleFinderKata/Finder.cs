@@ -11,37 +11,37 @@ namespace IncomprehensibleFinderKata
             this.persons = persons;
         }
 
-        public FindResult Find(Filter filter)
+        public Couple Find(Filter filter)
         {
-            var tr = new List<FindResult>();
+            var couples = new List<Couple>();
 
             for(var i = 0; i < persons.Count - 1; i++)
             {
                 for(var j = i + 1; j < persons.Count; j++)
                 {
-                    var result = new FindResult();
+                    var couple = new Couple();
                     if(persons[i].BirthDate < persons[j].BirthDate)
                     {
-                        result.P1 = persons[i];
-                        result.P2 = persons[j];
+                        couple.P1 = persons[i];
+                        couple.P2 = persons[j];
                     }
                     else
                     {
-                        result.P1 = persons[j];
-                        result.P2 = persons[i];
+                        couple.P1 = persons[j];
+                        couple.P2 = persons[i];
                     }
-                    result.D = result.P2.BirthDate - result.P1.BirthDate;
-                    tr.Add(result);
+                    couple.D = couple.P2.BirthDate - couple.P1.BirthDate;
+                    couples.Add(couple);
                 }
             }
 
-            if(tr.Count < 1)
+            if(couples.Count < 1)
             {
-                return new FindResult();
+                return new Couple();
             }
 
-            FindResult answer = tr[0];
-            foreach(var result in tr)
+            Couple answer = couples[0];
+            foreach(var result in couples)
             {
                 switch(filter)
                 {
