@@ -13,7 +13,6 @@ namespace IncomprehensibleFinderKata {
             if (people.Count < 2) return new Couple();
             var couples = GetPossibleCouples();
 
-            var answer = couples[0];
             switch (filter) {
                 case Filter.Closest:
                     return couples.OrderBy(c => c.D).First();
@@ -21,8 +20,7 @@ namespace IncomprehensibleFinderKata {
                 case Filter.Furthest:
                     return couples.OrderByDescending(c => c.D).First();
             }
-
-            return answer;
+            return new Couple();
         }
 
         private List<Couple> GetPossibleCouples() {
