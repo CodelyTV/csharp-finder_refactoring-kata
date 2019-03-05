@@ -12,10 +12,10 @@ namespace IncomprehensibleFinderKata {
         public Couple ApplyOn(List<Couple> couples) {
             switch (filterType) {
                 case FilterType.Closest:
-                    return couples.OrderBy(c => c.D).First();
+                    return couples.OrderBy(c => c.DifferenceBetweenBirthdates).First();
 
                 case FilterType.Furthest:
-                    return couples.OrderByDescending(c => c.D).First();
+                    return couples.OrderByDescending(c => c.DifferenceBetweenBirthdates).First();
             }
 
             return new NoCouple();
