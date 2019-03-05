@@ -10,10 +10,6 @@ namespace IncomprehensibleFinderKata {
         public Couple(Person firstPerson, Person secondPerson) {
             FirstPerson = firstPerson;
             SecondPerson = secondPerson;
-            CalculateBirthdateDifference();
-        }
-
-        public void CalculateBirthdateDifference() {
             D = SecondPerson.BirthDate - FirstPerson.BirthDate;
         }
     }
