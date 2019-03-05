@@ -4,34 +4,34 @@ namespace IncomprehensibleFinderKata
 {
     public class Finder
     {
-        private readonly List<Person> _p;
+        private readonly List<Person> persons;
 
-        public Finder(List<Person> p)
+        public Finder(List<Person> persons)
         {
-            _p = p;
+            this.persons = persons;
         }
 
         public FindResult Find(Filter filter)
         {
             var tr = new List<FindResult>();
 
-            for(var i = 0; i < _p.Count - 1; i++)
+            for(var i = 0; i < persons.Count - 1; i++)
             {
-                for(var j = i + 1; j < _p.Count; j++)
+                for(var j = i + 1; j < persons.Count; j++)
                 {
-                    var r = new FindResult();
-                    if(_p[i].BirthDate < _p[j].BirthDate)
+                    var result = new FindResult();
+                    if(persons[i].BirthDate < persons[j].BirthDate)
                     {
-                        r.P1 = _p[i];
-                        r.P2 = _p[j];
+                        result.P1 = persons[i];
+                        result.P2 = persons[j];
                     }
                     else
                     {
-                        r.P1 = _p[j];
-                        r.P2 = _p[i];
+                        result.P1 = persons[j];
+                        result.P2 = persons[i];
                     }
-                    r.D = r.P2.BirthDate - r.P1.BirthDate;
-                    tr.Add(r);
+                    result.D = result.P2.BirthDate - result.P1.BirthDate;
+                    tr.Add(result);
                 }
             }
 
