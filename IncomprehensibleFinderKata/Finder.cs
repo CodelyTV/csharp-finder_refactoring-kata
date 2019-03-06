@@ -12,22 +12,22 @@ namespace IncomprehensibleFinderKata {
 
         public Couple Find(FilterType filterType) {
             if (people.Count < 2) return new NoCouple();
-            var couples = GetPossibleCouples();
+            var couples = GetAllCouples();
 
             return new Filter(filterType).ApplyOn(couples);
         }
 
-        private List<Couple> GetPossibleCouples() {
-            var couples = new List<Couple>();
+        private List<Couple> GetAllCouples() {
             var takenPeople = new List<Person>();
-            people.ForEach(aPerson => {
-                takenPeople.Add(aPerson);
-                couples.AddRange(
-                    people
+            return people
+                .Select(aPerson => {
+                    takenPeople.Add(aPerson);
+                    return people
                         .Except(takenPeople)
-                        .Select(otherPerson => new Couple(aPerson, otherPerson)));
-            });
-            return couples;
+                        .Select(otherPerson => new Couple(aPerson, otherPerson));
+                })
+                .SelectMany(couple => couple)
+                .ToList();
         }
     }
 }
