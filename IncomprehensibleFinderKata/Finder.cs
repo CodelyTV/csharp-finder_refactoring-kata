@@ -20,12 +20,13 @@ namespace IncomprehensibleFinderKata {
         private List<Couple> GetPossibleCouples() {
             var couples = new List<Couple>();
             var takenPeople = new List<Person>();
-            foreach (var aPerson in people) {
+            people.ForEach(aPerson => {
                 takenPeople.Add(aPerson);
-                foreach (var otherPerson in people.Except(takenPeople)) {
-                    couples.Add(new Couple(aPerson, otherPerson));
-                }
-            }
+                couples.AddRange(
+                    people
+                        .Except(takenPeople)
+                        .Select(otherPerson => new Couple(aPerson, otherPerson)));
+            });
             return couples;
         }
     }
