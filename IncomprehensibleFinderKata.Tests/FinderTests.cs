@@ -16,8 +16,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var noCouple = finder.Find(FilterType.Closest);
 
-            Assert.Null(noCouple.FirstPerson);
-            Assert.Null(noCouple.SecondPerson);
+            Assert.Null(noCouple.YoungerPerson);
+            Assert.Null(noCouple.OlderPerson);
         }
 
         [Fact]
@@ -27,8 +27,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var noCouple = finder.Find(FilterType.Closest);
 
-            Assert.Null(noCouple.FirstPerson);
-            Assert.Null(noCouple.SecondPerson);
+            Assert.Null(noCouple.YoungerPerson);
+            Assert.Null(noCouple.OlderPerson);
         }
 
         [Fact]
@@ -38,8 +38,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var closestCouple = finder.Find(FilterType.Closest);
 
-            Assert.Same(sue, closestCouple.FirstPerson);
-            Assert.Same(greg, closestCouple.SecondPerson);
+            Assert.Same(sue, closestCouple.YoungerPerson);
+            Assert.Same(greg, closestCouple.OlderPerson);
         }
 
         [Fact]
@@ -49,8 +49,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var furthestCouple = finder.Find(FilterType.Furthest);
 
-            Assert.Same(greg, furthestCouple.FirstPerson);
-            Assert.Same(mike, furthestCouple.SecondPerson);
+            Assert.Same(greg, furthestCouple.YoungerPerson);
+            Assert.Same(mike, furthestCouple.OlderPerson);
         }
 
         [Fact]
@@ -60,8 +60,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var furthestCouple = finder.Find(FilterType.Furthest);
 
-            Assert.Same(sue, furthestCouple.FirstPerson);
-            Assert.Same(sarah, furthestCouple.SecondPerson);
+            Assert.Same(sue, furthestCouple.YoungerPerson);
+            Assert.Same(sarah, furthestCouple.OlderPerson);
         }
 
         [Fact]
@@ -71,8 +71,8 @@ namespace IncomprehensibleFinderKata.Tests {
 
             var closestCouple = finder.Find(FilterType.Closest);
 
-            Assert.Same(sue, closestCouple.FirstPerson);
-            Assert.Same(greg, closestCouple.SecondPerson);
+            Assert.Same(sue, closestCouple.YoungerPerson);
+            Assert.Same(greg, closestCouple.OlderPerson);
         }
     }
 }
