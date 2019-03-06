@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IncomprehensibleFinderKata {
@@ -19,17 +20,17 @@ namespace IncomprehensibleFinderKata {
         private List<Couple> GetPossibleCouples() {
             var couples = new List<Couple>();
 
+//            var takenPeople = new List<Person>();
+//            foreach (var aPerson in people) {
+//                takenPeople.Add(aPerson);
+//                foreach (var otherPerson in people.Except(takenPeople)) {
+//                    couples = 
+//                }
+//            }
+
             for (var i = 0; i < people.Count - 1; i++) {
                 for (var j = i + 1; j < people.Count; j++) {
-                    Couple couple;
-                    if (people[i].BirthDate < people[j].BirthDate) {
-                        couple = new Couple(people[i], people[j]);
-                    }
-                    else {
-                        couple = new Couple(people[j], people[i]);
-                    }
-
-                    couples.Add(couple);
+                    couples.Add(new Couple(people[i], people[j]));
                 }
             }
 
