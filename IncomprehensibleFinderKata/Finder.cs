@@ -1,67 +1,58 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace IncomprehensibleFinderKata
 {
     public class Finder
     {
-        private readonly List<Thing> _p;
+        private readonly List<Person> people;
 
-        public Finder(List<Thing> p)
+        public Finder(List<Person> people)
         {
-            _p = p;
+            this.people = people;
         }
 
-        public F Find(FT ft)
+        public Pair Find(Criteria criteria)
         {
-            var tr = new List<F>();
+            if (people.Count < 2) return new Pair();
 
-            for(var i = 0; i < _p.Count - 1; i++)
-            {
-                for(var j = i + 1; j < _p.Count; j++)
-                {
-                    var r = new F();
-                    if(_p[i].BirthDate < _p[j].BirthDate)
-                    {
-                        r.P1 = _p[i];
-                        r.P2 = _p[j];
+            var pairs = GetPotentialPairsFrom(people);
+
+            return FindMatchedPairByCriteria(criteria, pairs);
+        }
+
+        private static Pair FindMatchedPairByCriteria(Criteria criteria, List<Pair> pairs) {
+            switch (criteria) {
+                case Criteria.Closests:
+                    return pairs.OrderBy(pair => pair.BirthdateDifference).First();
+                case Criteria.Furthest:
+                    return pairs.OrderBy(pair => pair.BirthdateDifference).Last();
+                default:
+                    return new Pair();
+            }
+        }
+
+        private List<Pair> GetPotentialPairsFrom(List<Person> people) {
+            var tr = new List<Pair>();
+
+            for (var i = 0; i < people.Count - 1; i++) {
+                for (var j = i + 1; j < people.Count; j++) {
+                    var r = new Pair();
+                    if (people[i].BirthDate < people[j].BirthDate) {
+                        r.PersonOne = people[i];
+                        r.PersonTwo = people[j];
                     }
-                    else
-                    {
-                        r.P1 = _p[j];
-                        r.P2 = _p[i];
+                    else {
+                        r.PersonOne = people[j];
+                        r.PersonTwo = people[i];
                     }
-                    r.D = r.P2.BirthDate - r.P1.BirthDate;
+
+                    r.BirthdateDifference = r.PersonTwo.BirthDate - r.PersonOne.BirthDate;
                     tr.Add(r);
                 }
             }
 
-            if(tr.Count < 1)
-            {
-                return new F();
-            }
-
-            F answer = tr[0];
-            foreach(var result in tr)
-            {
-                switch(ft)
-                {
-                    case FT.One:
-                        if(result.D < answer.D)
-                        {
-                            answer = result;
-                        }
-                        break;
-
-                    case FT.Two:
-                        if(result.D > answer.D)
-                        {
-                            answer = result;
-                        }
-                        break;
-                }
-            }
-
-            return answer;
+            return tr;
         }
     }
 }
