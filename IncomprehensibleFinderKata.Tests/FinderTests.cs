@@ -87,6 +87,5 @@ namespace IncomprehensibleFinderKata.Tests
             Assert.Same(this.sue, result.P1);
             Assert.Same(this.greg, result.P2);
         }
-
     }
 }
