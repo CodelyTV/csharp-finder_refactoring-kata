@@ -1,4 +1,8 @@
-﻿namespace IncomprehensibleFinderKata.Tests
+﻿// <copyright file="FinderTests.cs" company="CodelyTV">
+// Copyright (c) CodelyTV. All rights reserved.
+// </copyright>
+
+namespace IncomprehensibleFinderKata.Tests
 {
     using System;
     using System.Collections.Generic;
