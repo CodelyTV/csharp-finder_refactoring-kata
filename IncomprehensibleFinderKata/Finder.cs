@@ -19,12 +19,12 @@ namespace IncomprehensibleFinderKata
         {
             var tr = new List<F>();
 
-            for(var i = 0; i < this._p.Count - 1; i++)
+            for (var i = 0; i < this._p.Count - 1; i++)
             {
-                for(var j = i + 1; j < this._p.Count; j++)
+                for (var j = i + 1; j < this._p.Count; j++)
                 {
                     var r = new F();
-                    if(this._p[i].BirthDate < this._p[j].BirthDate)
+                    if (this._p[i].BirthDate < this._p[j].BirthDate)
                     {
                         r.P1 = this._p[i];
                         r.P2 = this._p[j];
@@ -40,18 +40,18 @@ namespace IncomprehensibleFinderKata
                 }
             }
 
-            if(tr.Count < 1)
+            if (tr.Count < 1)
             {
                 return new F();
             }
 
             F answer = tr[0];
-            foreach(var result in tr)
+            foreach (var result in tr)
             {
-                switch(ft)
+                switch (ft)
                 {
                     case FT.One:
-                        if(result.D < answer.D)
+                        if (result.D < answer.D)
                         {
                             answer = result;
                         }
@@ -59,7 +59,7 @@ namespace IncomprehensibleFinderKata
                         break;
 
                     case FT.Two:
-                        if(result.D > answer.D)
+                        if (result.D > answer.D)
                         {
                             answer = result;
                         }
