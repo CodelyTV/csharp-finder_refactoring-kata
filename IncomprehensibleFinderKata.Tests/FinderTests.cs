@@ -82,9 +82,9 @@ namespace IncomprehensibleFinderKata.Tests
             Assert.Same(this.greg, result.P2);
         }
 
-        Thing sue = new Thing() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
-        Thing greg = new Thing() {Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
-        Thing sarah = new Thing() {Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
-        Thing mike = new Thing() {Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
+        Thing sue = new Thing() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
+        Thing greg = new Thing() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
+        Thing sarah = new Thing() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
+        Thing mike = new Thing() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
     }
 }
