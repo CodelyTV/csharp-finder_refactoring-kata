@@ -8,8 +8,27 @@ namespace IncomprehensibleFinderKata
 
     public class Person
     {
-        public string? Name { get; set; }
+        private readonly string name;
+        private DateTime birthDate;
 
-        public DateTime BirthDate { get; set; }
+        public Person(string name, DateTime birthDate)
+        {
+            this.name = name;
+            this.BirthDate = birthDate;
+        }
+
+        public DateTime BirthDate
+        {
+            get => this.birthDate;
+            set
+            {
+                if (value > DateTime.Now.Date)
+                {
+                    throw new ArgumentNullException(nameof(this.birthDate));
+                }
+
+                this.birthDate = value;
+            }
+        }
     }
 }

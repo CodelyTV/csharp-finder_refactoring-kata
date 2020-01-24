@@ -10,10 +10,10 @@ namespace IncomprehensibleFinderKata.Tests
 
     public class FinderTests
     {
-        private Person sue = new Person() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
-        private Person greg = new Person() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
-        private Person sarah = new Person() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
-        private Person mike = new Person() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
+        private Person sue = new Person("Sue", new DateTime(1950, 1, 1));
+        private Person greg = new Person("Greg", new DateTime(1952, 6, 1));
+        private Person sarah = new Person("Sarah", new DateTime(1982, 1, 1));
+        private Person mike = new Person("Mike", new DateTime(1979, 1, 1));
 
         [Fact]
         public void Returns_Empty_Results_When_Given_Empty_List()
