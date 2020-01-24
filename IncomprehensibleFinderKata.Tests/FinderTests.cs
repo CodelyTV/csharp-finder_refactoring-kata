@@ -18,7 +18,7 @@
 
         [Fact]
         public void Returns_Empty_Results_When_Given_One_Person() {
-            var list = new List<Thing>() {sue};
+            var list = new List<Thing>() { sue };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
@@ -29,7 +29,7 @@
 
         [Fact]
         public void Returns_Closest_Two_For_Two_People() {
-            var list = new List<Thing>() {sue, greg};
+            var list = new List<Thing>() { sue, greg };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
@@ -40,7 +40,7 @@
 
         [Fact]
         public void Returns_Furthest_Two_For_Two_People() {
-            var list = new List<Thing>() {greg, mike};
+            var list = new List<Thing>() { greg, mike };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.Two);
@@ -51,7 +51,7 @@
 
         [Fact]
         public void Returns_Furthest_Two_For_Four_People() {
-            var list = new List<Thing>() {greg, mike, sarah, sue};
+            var list = new List<Thing>() { greg, mike, sarah, sue };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.Two);
@@ -62,7 +62,7 @@
 
         [Fact]
         public void Returns_Closest_Two_For_Four_People() {
-            var list = new List<Thing>() {greg, mike, sarah, sue};
+            var list = new List<Thing>() { greg, mike, sarah, sue };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
@@ -71,9 +71,9 @@
             Assert.Same(greg, result.P2);
         }
 
-        Thing sue = new Thing() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1)};
-        Thing greg = new Thing() {Name = "Greg", BirthDate = new DateTime(1952, 6, 1)};
-        Thing sarah = new Thing() {Name = "Sarah", BirthDate = new DateTime(1982, 1, 1)};
-        Thing mike = new Thing() {Name = "Mike", BirthDate = new DateTime(1979, 1, 1)};
+        Thing sue = new Thing() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
+        Thing greg = new Thing() {Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
+        Thing sarah = new Thing() {Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
+        Thing mike = new Thing() {Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
     }
 }
