@@ -8,31 +8,31 @@ namespace IncomprehensibleFinderKata
 
     public class Finder
     {
-        private readonly List<Thing> _p;
+        private readonly List<Thing> p;
 
         public Finder(List<Thing> p)
         {
-            this._p = p;
+            this.p = p;
         }
 
         public F Find(FT ft)
         {
             var tr = new List<F>();
 
-            for (var i = 0; i < this._p.Count - 1; i++)
+            for (var i = 0; i < this.p.Count - 1; i++)
             {
-                for (var j = i + 1; j < this._p.Count; j++)
+                for (var j = i + 1; j < this.p.Count; j++)
                 {
                     var r = new F();
-                    if (this._p[i].BirthDate < this._p[j].BirthDate)
+                    if (this.p[i].BirthDate < this.p[j].BirthDate)
                     {
-                        r.P1 = this._p[i];
-                        r.P2 = this._p[j];
+                        r.P1 = this.p[i];
+                        r.P2 = this.p[j];
                     }
                     else
                     {
-                        r.P1 = this._p[j];
-                        r.P2 = this._p[i];
+                        r.P1 = this.p[j];
+                        r.P2 = this.p[i];
                     }
 
                     r.D = r.P2.BirthDate - r.P1.BirthDate;
