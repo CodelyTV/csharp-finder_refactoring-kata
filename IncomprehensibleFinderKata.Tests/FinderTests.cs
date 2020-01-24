@@ -16,27 +16,27 @@ namespace IncomprehensibleFinderKata.Tests
         private Person mike = new Person("Mike", new DateTime(1979, 1, 1));
 
         [Fact]
-        public void Returns_Empty_Results_When_Given_Empty_List()
+        public void Returns_Empty_Couple_When_Given_Empty_List()
         {
             var list = new List<Person>();
             var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(Criteria.Closest);
+            var couple = finder.Find(Criteria.Closest);
 
-            Assert.Null(result.Youngest);
-            Assert.Null(result.Oldest);
+            Assert.Null(couple.Youngest);
+            Assert.Null(couple.Oldest);
         }
 
         [Fact]
-        public void Returns_Empty_Results_When_Given_One_Person()
+        public void Returns_Empty_Couple_When_Given_One_Person()
         {
             var list = new List<Person>() { this.sue };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(Criteria.Closest);
+            var couple = finder.Find(Criteria.Closest);
 
-            Assert.Null(result.Youngest);
-            Assert.Null(result.Oldest);
+            Assert.Null(couple.Youngest);
+            Assert.Null(couple.Oldest);
         }
 
         [Fact]
@@ -45,10 +45,10 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.sue, this.greg };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(Criteria.Closest);
+            var couple = finder.Find(Criteria.Closest);
 
-            Assert.Same(this.sue, result.Youngest);
-            Assert.Same(this.greg, result.Oldest);
+            Assert.Same(this.sue, couple.Youngest);
+            Assert.Same(this.greg, couple.Oldest);
         }
 
         [Fact]
@@ -57,10 +57,10 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.greg, this.mike };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(Criteria.Farthest);
+            var couple = finder.Find(Criteria.Farthest);
 
-            Assert.Same(this.greg, result.Youngest);
-            Assert.Same(this.mike, result.Oldest);
+            Assert.Same(this.greg, couple.Youngest);
+            Assert.Same(this.mike, couple.Oldest);
         }
 
         [Fact]
@@ -69,10 +69,10 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(Criteria.Farthest);
+            var couple = finder.Find(Criteria.Farthest);
 
-            Assert.Same(this.sue, result.Youngest);
-            Assert.Same(this.sarah, result.Oldest);
+            Assert.Same(this.sue, couple.Youngest);
+            Assert.Same(this.sarah, couple.Oldest);
         }
 
         [Fact]
@@ -81,10 +81,10 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(Criteria.Closest);
+            var couple = finder.Find(Criteria.Closest);
 
-            Assert.Same(this.sue, result.Youngest);
-            Assert.Same(this.greg, result.Oldest);
+            Assert.Same(this.sue, couple.Youngest);
+            Assert.Same(this.greg, couple.Oldest);
         }
     }
 }
