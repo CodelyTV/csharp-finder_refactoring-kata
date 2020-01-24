@@ -1,12 +1,12 @@
-﻿// <copyright file="FT.cs" company="CodelyTV">
+﻿// <copyright file="Criteria.cs" company="CodelyTV">
 // Copyright (c) CodelyTV. All rights reserved.
 // </copyright>
 
 namespace IncomprehensibleFinderKata
 {
-    public enum FT
+    public enum Criteria
     {
-        One,
-        Two,
+        Closest,
+        Farthest,
     }
 }

@@ -10,81 +10,81 @@ namespace IncomprehensibleFinderKata.Tests
 
     public class FinderTests
     {
-        private Thing sue = new Thing() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
-        private Thing greg = new Thing() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
-        private Thing sarah = new Thing() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
-        private Thing mike = new Thing() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
+        private Person sue = new Person() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
+        private Person greg = new Person() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
+        private Person sarah = new Person() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
+        private Person mike = new Person() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
 
         [Fact]
         public void Returns_Empty_Results_When_Given_Empty_List()
         {
-            var list = new List<Thing>();
-            var finder = new Finder(list);
+            var list = new List<Person>();
+            var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(FT.One);
+            var result = finder.Find(Criteria.Closest);
 
-            Assert.Null(result.P1);
-            Assert.Null(result.P2);
+            Assert.Null(result.Youngest);
+            Assert.Null(result.Oldest);
         }
 
         [Fact]
         public void Returns_Empty_Results_When_Given_One_Person()
         {
-            var list = new List<Thing>() { this.sue };
-            var finder = new Finder(list);
+            var list = new List<Person>() { this.sue };
+            var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(FT.One);
+            var result = finder.Find(Criteria.Closest);
 
-            Assert.Null(result.P1);
-            Assert.Null(result.P2);
+            Assert.Null(result.Youngest);
+            Assert.Null(result.Oldest);
         }
 
         [Fact]
         public void Returns_Closest_Two_For_Two_People()
         {
-            var list = new List<Thing>() { this.sue, this.greg };
-            var finder = new Finder(list);
+            var list = new List<Person>() { this.sue, this.greg };
+            var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(FT.One);
+            var result = finder.Find(Criteria.Closest);
 
-            Assert.Same(this.sue, result.P1);
-            Assert.Same(this.greg, result.P2);
+            Assert.Same(this.sue, result.Youngest);
+            Assert.Same(this.greg, result.Oldest);
         }
 
         [Fact]
         public void Returns_Furthest_Two_For_Two_People()
         {
-            var list = new List<Thing>() { this.greg, this.mike };
-            var finder = new Finder(list);
+            var list = new List<Person>() { this.greg, this.mike };
+            var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(FT.Two);
+            var result = finder.Find(Criteria.Farthest);
 
-            Assert.Same(this.greg, result.P1);
-            Assert.Same(this.mike, result.P2);
+            Assert.Same(this.greg, result.Youngest);
+            Assert.Same(this.mike, result.Oldest);
         }
 
         [Fact]
         public void Returns_Furthest_Two_For_Four_People()
         {
-            var list = new List<Thing>() { this.greg, this.mike, this.sarah, this.sue };
-            var finder = new Finder(list);
+            var list = new List<Person>() { this.greg, this.mike, this.sarah, this.sue };
+            var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(FT.Two);
+            var result = finder.Find(Criteria.Farthest);
 
-            Assert.Same(this.sue, result.P1);
-            Assert.Same(this.sarah, result.P2);
+            Assert.Same(this.sue, result.Youngest);
+            Assert.Same(this.sarah, result.Oldest);
         }
 
         [Fact]
         public void Returns_Closest_Two_For_Four_People()
         {
-            var list = new List<Thing>() { this.greg, this.mike, this.sarah, this.sue };
-            var finder = new Finder(list);
+            var list = new List<Person>() { this.greg, this.mike, this.sarah, this.sue };
+            var finder = new CoupleByCriteriaFinder(list);
 
-            var result = finder.Find(FT.One);
+            var result = finder.Find(Criteria.Closest);
 
-            Assert.Same(this.sue, result.P1);
-            Assert.Same(this.greg, result.P2);
+            Assert.Same(this.sue, result.Youngest);
+            Assert.Same(this.greg, result.Oldest);
         }
     }
 }
