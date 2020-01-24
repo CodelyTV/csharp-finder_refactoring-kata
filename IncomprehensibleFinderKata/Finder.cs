@@ -30,6 +30,7 @@
                         r.P1 = _p[j];
                         r.P2 = _p[i];
                     }
+
                     r.D = r.P2.BirthDate - r.P1.BirthDate;
                     tr.Add(r);
                 }
@@ -50,6 +51,7 @@
                         {
                             answer = result;
                         }
+
                         break;
 
                     case FT.Two:
@@ -57,6 +59,7 @@
                         {
                             answer = result;
                         }
+
                         break;
                 }
             }
