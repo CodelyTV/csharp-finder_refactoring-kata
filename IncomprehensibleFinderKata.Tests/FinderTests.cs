@@ -10,6 +10,12 @@ namespace IncomprehensibleFinderKata.Tests
 
     public class FinderTests
     {
+
+        private Thing sue = new Thing() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
+        private Thing greg = new Thing() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
+        private Thing sarah = new Thing() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
+        private Thing mike = new Thing() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
+
         [Fact]
         public void Returns_Empty_Results_When_Given_Empty_List()
         {
@@ -42,7 +48,7 @@ namespace IncomprehensibleFinderKata.Tests
 
             var result = finder.Find(FT.One);
 
-            Assert.Same(sue, result.P1);
+            Assert.Same(this.sue, result.P1);
             Assert.Same(this.greg, result.P2);
         }
 
@@ -82,9 +88,5 @@ namespace IncomprehensibleFinderKata.Tests
             Assert.Same(this.greg, result.P2);
         }
 
-        Thing sue = new Thing() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
-        Thing greg = new Thing() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
-        Thing sarah = new Thing() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
-        Thing mike = new Thing() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
     }
 }
