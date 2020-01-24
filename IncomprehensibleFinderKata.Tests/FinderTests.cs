@@ -8,9 +8,11 @@ namespace IncomprehensibleFinderKata.Tests
     using System.Collections.Generic;
     using Xunit;
 
-    public class FinderTests {
+    public class FinderTests 
+    {
         [Fact]
-        public void Returns_Empty_Results_When_Given_Empty_List() {
+        public void Returns_Empty_Results_When_Given_Empty_List() 
+        {
             var list = new List<Thing>();
             var finder = new Finder(list);
 
@@ -21,7 +23,8 @@ namespace IncomprehensibleFinderKata.Tests
         }
 
         [Fact]
-        public void Returns_Empty_Results_When_Given_One_Person() {
+        public void Returns_Empty_Results_When_Given_One_Person() 
+        {
             var list = new List<Thing>() { this.sue };
             var finder = new Finder(list);
 
@@ -32,18 +35,20 @@ namespace IncomprehensibleFinderKata.Tests
         }
 
         [Fact]
-        public void Returns_Closest_Two_For_Two_People() {
+        public void Returns_Closest_Two_For_Two_People() 
+        {
             var list = new List<Thing>() { this.sue, this.greg };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
 
-            Assert.Same(this.sue, result.P1);
+            Assert.Same(sue, result.P1);
             Assert.Same(this.greg, result.P2);
         }
 
         [Fact]
-        public void Returns_Furthest_Two_For_Two_People() {
+        public void Returns_Furthest_Two_For_Two_People() 
+        {
             var list = new List<Thing>() { this.greg, this.mike };
             var finder = new Finder(list);
 
@@ -54,7 +59,8 @@ namespace IncomprehensibleFinderKata.Tests
         }
 
         [Fact]
-        public void Returns_Furthest_Two_For_Four_People() {
+        public void Returns_Furthest_Two_For_Four_People() 
+        {
             var list = new List<Thing>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new Finder(list);
 
@@ -65,7 +71,8 @@ namespace IncomprehensibleFinderKata.Tests
         }
 
         [Fact]
-        public void Returns_Closest_Two_For_Four_People() {
+        public void Returns_Closest_Two_For_Four_People() 
+        {
             var list = new List<Thing>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new Finder(list);
 
