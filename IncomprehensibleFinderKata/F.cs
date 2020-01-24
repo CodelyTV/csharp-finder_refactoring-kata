@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace IncomprehensibleFinderKata
+﻿namespace IncomprehensibleFinderKata
 {
+    using System;
+
     public class F
     {
         public Thing P1 { get; set; }

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace IncomprehensibleFinderKata
+﻿namespace IncomprehensibleFinderKata
 {
+    using System.Collections.Generic;
+
     public class Finder
     {
         private readonly List<Thing> _p;

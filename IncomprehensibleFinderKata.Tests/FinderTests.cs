@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Xunit;
+﻿namespace IncomprehensibleFinderKata.Tests
+{
+    using System;
+    using System.Collections.Generic;
+    using Xunit;
 
-namespace IncomprehensibleFinderKata.Tests {
     public class FinderTests {
         [Fact]
         public void Returns_Empty_Results_When_Given_Empty_List() {
