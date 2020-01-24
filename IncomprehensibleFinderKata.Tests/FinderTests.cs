@@ -22,7 +22,7 @@ namespace IncomprehensibleFinderKata.Tests
 
         [Fact]
         public void Returns_Empty_Results_When_Given_One_Person() {
-            var list = new List<Thing>() { sue };
+            var list = new List<Thing>() { this.sue };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
@@ -33,46 +33,46 @@ namespace IncomprehensibleFinderKata.Tests
 
         [Fact]
         public void Returns_Closest_Two_For_Two_People() {
-            var list = new List<Thing>() { sue, greg };
+            var list = new List<Thing>() { this.sue, this.greg };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
 
-            Assert.Same(sue, result.P1);
-            Assert.Same(greg, result.P2);
+            Assert.Same(this.sue, result.P1);
+            Assert.Same(this.greg, result.P2);
         }
 
         [Fact]
         public void Returns_Furthest_Two_For_Two_People() {
-            var list = new List<Thing>() { greg, mike };
+            var list = new List<Thing>() { this.greg, this.mike };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.Two);
 
-            Assert.Same(greg, result.P1);
-            Assert.Same(mike, result.P2);
+            Assert.Same(this.greg, result.P1);
+            Assert.Same(this.mike, result.P2);
         }
 
         [Fact]
         public void Returns_Furthest_Two_For_Four_People() {
-            var list = new List<Thing>() { greg, mike, sarah, sue };
+            var list = new List<Thing>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.Two);
 
-            Assert.Same(sue, result.P1);
-            Assert.Same(sarah, result.P2);
+            Assert.Same(this.sue, result.P1);
+            Assert.Same(this.sarah, result.P2);
         }
 
         [Fact]
         public void Returns_Closest_Two_For_Four_People() {
-            var list = new List<Thing>() { greg, mike, sarah, sue };
+            var list = new List<Thing>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new Finder(list);
 
             var result = finder.Find(FT.One);
 
-            Assert.Same(sue, result.P1);
-            Assert.Same(greg, result.P2);
+            Assert.Same(this.sue, result.P1);
+            Assert.Same(this.greg, result.P2);
         }
 
         Thing sue = new Thing() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
