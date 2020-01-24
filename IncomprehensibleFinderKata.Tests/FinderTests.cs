@@ -10,7 +10,6 @@ namespace IncomprehensibleFinderKata.Tests
 
     public class FinderTests
     {
-
         private Thing sue = new Thing() { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
         private Thing greg = new Thing() { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
         private Thing sarah = new Thing() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
