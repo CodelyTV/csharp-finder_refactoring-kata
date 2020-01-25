@@ -9,7 +9,8 @@ namespace IncomprehensibleFinderKata
     public class Person
     {
         private readonly string name;
-        private DateTime birthDate;
+
+        public DateTime BirthDate { get; }
 
         public Person(string name, DateTime birthDate)
         {
@@ -17,18 +18,9 @@ namespace IncomprehensibleFinderKata
             this.BirthDate = birthDate;
         }
 
-        public DateTime BirthDate
+        public bool IsYoungerThan(Person person)
         {
-            get => this.birthDate;
-            set
-            {
-                if (value > DateTime.Now.Date)
-                {
-                    throw new ArgumentNullException(nameof(this.birthDate));
-                }
-
-                this.birthDate = value;
-            }
+            return this.BirthDate < person.BirthDate;
         }
     }
 }
