@@ -8,6 +8,16 @@ namespace IncomprehensibleFinderKata
 
     public class Couple
     {
+        public Couple()
+        {
+        }
+
+        public Couple(Person? youngest, Person? oldest)
+        {
+            this.Youngest = youngest ?? throw new ArgumentNullException(nameof(youngest));
+            this.Oldest = oldest ?? throw new ArgumentNullException(nameof(oldest));
+        }
+
         public Person? Youngest { get; set; }
 
         public Person? Oldest { get; set; }
