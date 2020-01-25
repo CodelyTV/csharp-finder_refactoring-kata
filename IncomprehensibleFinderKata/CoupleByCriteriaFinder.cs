@@ -20,11 +20,6 @@ namespace IncomprehensibleFinderKata
         {
             var coupleCombinations = this.GenerateCombinationCouple(this.people);
 
-            if (coupleCombinations.Count() < 1)
-            {
-                return new Couple();
-            }
-
             Couple answer = coupleCombinations.FirstOrDefault();
             foreach (var potencialResult in coupleCombinations)
             {
@@ -65,7 +60,6 @@ namespace IncomprehensibleFinderKata
                 return people.Skip(index + 1).Take(limit).Select(person2 =>
                 {
                     var couple = this.GenerateCouple(person1, person2);
-                    couple.Distance = couple.Oldest.BirthDate - couple.Youngest.BirthDate;
                     return couple;
                 }).ToList();
             });

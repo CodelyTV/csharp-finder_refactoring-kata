@@ -8,20 +8,34 @@ namespace IncomprehensibleFinderKata
 
     public class Couple
     {
-        public Couple()
-        {
-        }
+        public Person Youngest { get; }
 
-        public Couple(Person? youngest, Person? oldest)
+        public Person Oldest { get; }
+
+        public TimeSpan Distance { get; }
+
+        public Couple(Person youngest, Person oldest)
         {
             this.Youngest = youngest ?? throw new ArgumentNullException(nameof(youngest));
             this.Oldest = oldest ?? throw new ArgumentNullException(nameof(oldest));
+            this.Distance = this.CalculeDistance(oldest, youngest);
         }
 
-        public Person? Youngest { get; set; }
+        private TimeSpan CalculeDistance(Person oldest, Person youngest)
+        {
+            var distance = oldest.BirthDate - youngest.BirthDate;
 
-        public Person? Oldest { get; set; }
+            if (this.IsValidDistance(distance))
+            {
+                throw new ArgumentNullException($"{nameof(youngest)} is greater than {nameof(oldest)}");
+            }
 
-        public TimeSpan Distance { get; set; }
+            return distance;
+        }
+
+        private bool IsValidDistance(TimeSpan distance)
+        {
+            return distance < TimeSpan.Zero;
+        }
     }
 }

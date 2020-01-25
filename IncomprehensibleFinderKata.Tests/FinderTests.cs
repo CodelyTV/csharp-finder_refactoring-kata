@@ -23,8 +23,7 @@ namespace IncomprehensibleFinderKata.Tests
 
             var couple = finder.Find(Criteria.Closest);
 
-            Assert.Null(couple.Youngest);
-            Assert.Null(couple.Oldest);
+            Assert.Null(couple);
         }
 
         [Fact]
@@ -35,8 +34,7 @@ namespace IncomprehensibleFinderKata.Tests
 
             var couple = finder.Find(Criteria.Closest);
 
-            Assert.Null(couple.Youngest);
-            Assert.Null(couple.Oldest);
+            Assert.Null(couple);
         }
 
         [Fact]
