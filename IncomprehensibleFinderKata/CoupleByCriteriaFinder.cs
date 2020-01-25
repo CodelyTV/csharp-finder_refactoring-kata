@@ -4,46 +4,30 @@
 
 namespace IncomprehensibleFinderKata
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     public class CoupleByCriteriaFinder
     {
-        private readonly List<Person> people;
+        private readonly IEnumerable<Couple> couples;
 
-        public CoupleByCriteriaFinder(List<Person> people)
+        public CoupleByCriteriaFinder(IEnumerable<Person> people)
         {
-            this.people = people;
+            people = people ?? throw new ArgumentNullException(nameof(people));
+            this.couples = this.GenerateCombinationCouple(people);
         }
 
         public Couple Find(Criteria criteria)
         {
-            var coupleCombinations = this.GenerateCombinationCouple(this.people);
-
-            Couple answer = coupleCombinations.FirstOrDefault();
-            foreach (var potencialResult in coupleCombinations)
+            if (criteria == Criteria.Closest)
             {
-                switch (criteria)
-                {
-                    case Criteria.Closest:
-                        if (potencialResult.Distance < answer.Distance)
-                        {
-                            answer = potencialResult;
-                        }
-
-                        break;
-
-                    case Criteria.Farthest:
-                        if (potencialResult.Distance > answer.Distance)
-                        {
-                            answer = potencialResult;
-                        }
-
-                        break;
-                }
+                return this.couples.OrderBy(u => u.Distance).FirstOrDefault();
             }
-
-            return answer;
+            else
+            {
+                return this.couples.OrderByDescending(u => u.Distance).FirstOrDefault();
+            }
         }
 
         private Couple GenerateCouple(Person person1, Person person2)
