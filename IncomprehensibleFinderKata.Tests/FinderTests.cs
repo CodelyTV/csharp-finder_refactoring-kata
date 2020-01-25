@@ -21,7 +21,7 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>();
             var finder = new CoupleByCriteriaFinder(list);
 
-            var couple = finder.Find(Criteria.Closest);
+            var couple = finder.FindByFarthest();
 
             Assert.Null(couple);
         }
@@ -32,7 +32,7 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.sue };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var couple = finder.Find(Criteria.Closest);
+            var couple = finder.FindByClosest();
 
             Assert.Null(couple);
         }
@@ -43,7 +43,7 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.sue, this.greg };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var couple = finder.Find(Criteria.Closest);
+            var couple = finder.FindByClosest();
 
             Assert.Same(this.sue, couple.Youngest);
             Assert.Same(this.greg, couple.Oldest);
@@ -55,7 +55,7 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.greg, this.mike };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var couple = finder.Find(Criteria.Farthest);
+            var couple = finder.FindByFarthest();
 
             Assert.Same(this.greg, couple.Youngest);
             Assert.Same(this.mike, couple.Oldest);
@@ -67,7 +67,7 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var couple = finder.Find(Criteria.Farthest);
+            var couple = finder.FindByFarthest();
 
             Assert.Same(this.sue, couple.Youngest);
             Assert.Same(this.sarah, couple.Oldest);
@@ -79,7 +79,7 @@ namespace IncomprehensibleFinderKata.Tests
             var list = new List<Person>() { this.greg, this.mike, this.sarah, this.sue };
             var finder = new CoupleByCriteriaFinder(list);
 
-            var couple = finder.Find(Criteria.Closest);
+            var couple = finder.FindByClosest();
 
             Assert.Same(this.sue, couple.Youngest);
             Assert.Same(this.greg, couple.Oldest);

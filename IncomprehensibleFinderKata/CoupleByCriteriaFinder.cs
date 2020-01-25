@@ -18,16 +18,14 @@ namespace IncomprehensibleFinderKata
             this.couples = this.GenerateCombinationCouple(people);
         }
 
-        public Couple Find(Criteria criteria)
+        public Couple FindByClosest()
         {
-            if (criteria == Criteria.Closest)
-            {
-                return this.couples.OrderBy(u => u.Distance).FirstOrDefault();
-            }
-            else
-            {
-                return this.couples.OrderByDescending(u => u.Distance).FirstOrDefault();
-            }
+            return this.couples.OrderBy(u => u.Distance).FirstOrDefault();
+        }
+
+        public Couple FindByFarthest()
+        {
+            return this.couples.OrderByDescending(u => u.Distance).FirstOrDefault();
         }
 
         private Couple GenerateCouple(Person person1, Person person2)
@@ -43,8 +41,7 @@ namespace IncomprehensibleFinderKata
             {
                 return people.Skip(index + 1).Take(limit).Select(person2 =>
                 {
-                    var couple = this.GenerateCouple(person1, person2);
-                    return couple;
+                    return this.GenerateCouple(person1, person2);
                 }).ToList();
             });
         }
