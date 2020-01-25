@@ -5,6 +5,7 @@
 namespace IncomprehensibleFinderKata
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class CoupleByCriteriaFinder
     {
@@ -17,35 +18,14 @@ namespace IncomprehensibleFinderKata
 
         public Couple Find(Criteria criteria)
         {
-            var coupleCombinations = new List<Couple>();
+            var coupleCombinations = this.GenerateCombinationCouple(this.people);
 
-            for (var i = 0; i < this.people.Count - 1; i++)
-            {
-                for (var j = i + 1; j < this.people.Count; j++)
-                {
-                    var couple = new Couple();
-                    if (this.people[i].BirthDate < this.people[j].BirthDate)
-                    {
-                        couple.Youngest = this.people[i];
-                        couple.Oldest = this.people[j];
-                    }
-                    else
-                    {
-                        couple.Youngest = this.people[j];
-                        couple.Oldest = this.people[i];
-                    }
-
-                    couple.Distance = couple.Oldest.BirthDate - couple.Youngest.BirthDate;
-                    coupleCombinations.Add(couple);
-                }
-            }
-
-            if (coupleCombinations.Count < 1)
+            if (coupleCombinations.Count() < 1)
             {
                 return new Couple();
             }
 
-            Couple answer = coupleCombinations[0];
+            Couple answer = coupleCombinations.FirstOrDefault();
             foreach (var potencialResult in coupleCombinations)
             {
                 switch (criteria)
@@ -69,6 +49,26 @@ namespace IncomprehensibleFinderKata
             }
 
             return answer;
+        }
+
+        private Couple GenerateCouple(Person person1, Person person2)
+        {
+            return person1.IsYoungerThan(person2) ? new Couple(person1, person2) : new Couple(person2, person1);
+        }
+
+        private IEnumerable<Couple> GenerateCombinationCouple(IEnumerable<Person> people)
+        {
+            int limit = people.Count();
+
+            return people.SelectMany((person1, index) =>
+            {
+                return people.Skip(index + 1).Take(limit).Select(person2 =>
+                {
+                    var couple = this.GenerateCouple(person1, person2);
+                    couple.Distance = couple.Oldest.BirthDate - couple.Youngest.BirthDate;
+                    return couple;
+                }).ToList();
+            });
         }
     }
 }
