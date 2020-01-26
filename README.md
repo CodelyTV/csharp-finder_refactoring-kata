@@ -15,9 +15,9 @@ Try to put in practice all your scala knowledge making use of the most idiomatic
 ## How To Start
 
 1. Clone this repository `git clone https://github.com/CodelyTV/finder-refactoring-kata-csharp`
-2. Install [SBT](http://www.scala-sbt.org/)
-3. Run SBT on the project directory `sbt`
-4. Run the tests with `t`. You also have available the `s` and `ts` commands which runs the [scalastyle](http://www.scalastyle.org/) over the production and test code.
+2. Install dotnet sdk 2.2 and ASP.NET Core Runtime (https://dotnet.microsoft.com/download/dotnet-core/3.1)
+3. Build the project directory using `dotnet build`
+4. Run the tests with `dotnet test`.
 5. Start refactoring! 
 
 The primary goal is to refactor the code in `Finder.cs` - as it stands the code is incomprehensible. 
