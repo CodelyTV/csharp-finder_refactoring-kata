@@ -1,4 +1,4 @@
-# Incomprehensible Finder Refactoring Kata in Scala
+# Incomprehensible Finder Refactoring Kata in CSharp
  
 ## Introduction 
 
@@ -9,15 +9,12 @@ The good news: at least there are unit tests to prove the code is working.
 
 You job is to refactor the code and make it readable, while keeping the code in working order (pass all tests). 
 
-Important: The new developer had a very strong Java background, so the code you'll find is not very idiomatic scala.
-Try to put in practice all your scala knowledge making use of the most idiomatic techniques and getting rid off the Java essence :) 
-
 ## How To Start
 
 1. Clone this repository `git clone https://github.com/CodelyTV/finder-refactoring-kata-csharp`
-2. Install [SBT](http://www.scala-sbt.org/)
-3. Run SBT on the project directory `sbt`
-4. Run the tests with `t`. You also have available the `s` and `ts` commands which runs the [scalastyle](http://www.scalastyle.org/) over the production and test code.
+2. Install dotnet sdk 2.2 and ASP.NET Core Runtime (https://dotnet.microsoft.com/download/dotnet-core/2.2)
+3. Build the project directory using `dotnet build`
+4. Run the tests with `dotnet test`.
 5. Start refactoring! 
 
 The primary goal is to refactor the code in `Finder.cs` - as it stands the code is incomprehensible. 
@@ -50,11 +47,10 @@ You can stop when you feel the code is good enough, something you can come back 
 
 You can also find the kata in different programming languages in isolated repositories just ready to clone and enjoy:
 
-* 🐘 [PHP](https://github.com/CodelyTV/finder-refactoring-kata-php)
-* 🦈 [C#](https://github.com/CodelyTV/finder-refactoring-kata-csharp)
-* ☕  [Java](https://github.com/DoDevJutsu/incomprehensible-finder-refactoring-java)
-* 🧬 [Scala](https://github.com/CodelyTV/finder-refactoring-kata-scala)
+* [PHP](https://github.com/CodelyTV/finder-refactoring-kata-php)
+* [Java](https://github.com/DoDevJutsu/incomprehensible-finder-refactoring-java)
+* [Scala](https://github.com/CodelyTV/finder-refactoring-kata-scala)
 
-This kata is a Scala port of [the original Incomprehensible Finder Refactoring Kata](https://github.com/OdeToCode/Katas/tree/master/Refactoring) created by [K. Scott Allen](https://github.com/OdeToCode).
+This kata is a CSharp port of [the original Incomprehensible Finder Refactoring Kata](https://github.com/OdeToCode/Katas/tree/master/Refactoring) created by [K. Scott Allen](https://github.com/OdeToCode).
 
 Port developed by [CodelyTV](https://codely.tv/) and [contributors](../../graphs/contributors) 😊
