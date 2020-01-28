@@ -30,7 +30,7 @@ namespace IncomprehensibleFinderKata
 
         private Couple GenerateCouple(Person person1, Person person2)
         {
-            return person1.IsYoungerThan(person2) ? new Couple(person1, person2) : new Couple(person2, person1);
+            return person1.IsYoungerThan(person2) ? new Couple(youngest: person1, oldest: person2) : new Couple(youngest: person2, oldest: person1);
         }
 
         private IEnumerable<Couple> GenerateCombinationCouple(IEnumerable<Person> people)
